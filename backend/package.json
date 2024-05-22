@@ -1,14 +1,14 @@
 {
   "name": "backend",
   "version": "1.0.0",
+  "description": "This is the backend for the project",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dennis-Maigua",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
