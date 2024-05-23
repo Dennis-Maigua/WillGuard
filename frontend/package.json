@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
     "@testing-library/user-event": "^14.5.2",
+    "axios": "^1.7.2",
     "query-string": "^9.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -42,6 +43,7 @@
   "author": "Dennis-Maigua",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@babel/plugin-transform-private-property-in-object": "^7.24.5",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",

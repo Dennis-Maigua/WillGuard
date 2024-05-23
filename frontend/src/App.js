@@ -1,7 +1,12 @@
-export default function App() {
+import { Routes, Route } from "react-router-dom";
+import Form from "./components/Form";
+
+function App() {
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
-      <p className="text-gray-500 text-2xl">React Tailwind</p>
-    </div>
+    <Routes>
+      <Route path='/reset-password' element={<Form />} />
+    </Routes>
   );
-}
+};
+
+export default App;

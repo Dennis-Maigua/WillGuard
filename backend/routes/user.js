@@ -6,8 +6,13 @@ const { isResetTokenValid } = require('../middlewares/user');
 
 router.post('/register', validateUser, validate, createUser);
 router.post('/login', login);
-router.post('/verify', verifyEmail);
+router.post('/verify-email', verifyEmail);
 router.post('/forgot-password', forgotPassword);
 router.post('/reset-password', isResetTokenValid, resetPassword);
+router.get('/verify-token', isResetTokenValid, (req, res) => {
+    res.json({
+        success: true
+    });
+});
 
 module.exports = router;

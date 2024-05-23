@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
 
-exports.generateOTP = () => {    
-    let otp = '';    
-    for(let i=0; i<=3; i++) {
+exports.generateOTP = () => {
+    let otp = '';
+    for (let i = 0; i <= 3; i++) {
         const randVal = Math.round(Math.random() * 9);
         otp = otp + randVal;
     }
@@ -17,8 +17,8 @@ exports.mailTransport = () => {
             user: process.env.MAILTRAP_USERNAME,
             pass: process.env.MAILTRAP_PASSWORD
         }
-      });
-      
+    });
+
     return transport;
 };
 
@@ -59,11 +59,11 @@ exports.verifyEmailTemplate = code => {
         </head>
         <body>
             <div class="container">
-                <h1 class="title"> Verify Email </h1>
-                <p> Please enter the following OTP code to verify your email: </p>
+                <h1 class="title"> Email Verification </h1>
+                <p> Please enter the OTP below to verify your email address: </p>
                 <p class="otp"> ${code} </p>
                 <br>
-                <p> For security purposes, the verification code will expire in 1 hour or after first use! </p>
+                <p> This verification code will only be valid for 1 hour and will expire after use! </p>
             </div>
         </body>
     </html>
@@ -102,7 +102,7 @@ exports.welcomeEmailTemplate = (heading, message) => {
                 <h1 class="title"> ${heading} </h1>
                 <p> ${message} </p>
                 <br>
-                <p> Thank you and feel free to contact us for more information! </p>
+                <p> Thank you for joining our community! </p>
             </div>
         </body>
     </html>
@@ -153,7 +153,7 @@ exports.resetPasswordTemplate = url => {
                 <p> Please click the reset link below to change your password: </p>
                 <a href="${url}"> Reset Password </a>
                 <br>
-                <p> Ignore this email if you did not initiate this request! </p>
+                <p> If this was not you, please ignore this email! </p>
             </div>
         </body>
     </html>
@@ -192,7 +192,7 @@ exports.resetSuccessTemplate = (heading, message) => {
                 <h1 class="title"> ${heading} </h1>
                 <p> ${message} </p>
                 <br>
-                <p> Contact our support via email for any issues or concerns! </p>
+                <p> If this was not you, contact our support via email! </p>
             </div>
         </body>
     </html>
