@@ -1,10 +1,4 @@
-# About the Project
-
-![Conceptual framework](https://github.com/Dennis-Maigua/backend/assets/32156551/98e1231c-b5b6-4cfe-82b8-232b322a2f79)
-
-WillGuard emerges as a viable and promising solution. It aims to reduce the complexity and uncertainty associated with traditional methods by giving users an easy-to-use platform for managing their wills. Therefore, people can plan for the distribution of their assets according to their wishes with confidence.
-
-## Project Installation
+# Project Installation
 
 Clone this repository, open the project directory, and run the following commands:
 
@@ -31,6 +25,6 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Deployment
+# Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)

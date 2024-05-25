@@ -2,7 +2,7 @@
 
 This project is licensed under the MIT license.
 
-The Automated Wills DApp is a decentralized application (DApp) leveraging blockchain technology and smart contracts to streamline the creation and execution of wills. 
+WillGuard is a decentralized application (DApp) leveraging blockchain technology and smart contracts to streamline the creation and execution of wills.
 By harnessing the transparency, security, and immutability of blockchain, this DApp offers users a reliable and efficient solution for managing their testamentary wishes. 
 Traditional will-making processes are often cumbersome, prone to errors, and subject to legal complexities. 
 The Automated Wills DApp revolutionizes this process, offering a user-friendly platform that ensures the accurate execution of testamentary wishes while maintaining the highest standards of security and privacy.
