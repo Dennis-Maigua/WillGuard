@@ -73,11 +73,9 @@ yarn start
 
 ### 6. Start the Application
 
-#### Method 1: 
-
 From the terminal, press the <kbd>A</kbd> key to start the app on _Android_, or press the <kbd>I</kbd> key to start the app on _iOS_.
 
-#### Method 2:
+`or`
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of the project and run the following command:
 
