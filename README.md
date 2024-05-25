@@ -47,7 +47,7 @@ cd willguard/application
 
 >**Note**: Make sure you have installed the latest version of [Node.js](https://nodejs.org/en/download/package-manager) before proceeding.
 
-### 4: Install the Requirements
+### 4. Install the Requirements
 
 First, you will need to install all packages and dependencies for the project via the following command:
 
@@ -59,7 +59,7 @@ npm install
 yarn install
 ```
 
-### 5: Start the Metro Server
+### 5. Start the Metro Server
 
 You will need to start **Metro** (the JavaScript _bundler_ that ships _with_ React Native) by running the following command:
 
@@ -71,7 +71,7 @@ npm start
 yarn start
 ```
 
-### 6: Start the Application
+### 6, Start the Application
 
 #### Method 1: 
 
