@@ -15,31 +15,31 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 - **Privacy Protection**: Encryption protocols safeguard sensitive information, granting users peace of mind regarding data security.
 - **Legacy Planning Tools**: Additional features facilitate comprehensive legacy planning, including asset distribution and beneficiary management.
 
-# Environment and Setup:
+## Environment and Setup:
 
-## Step 1: Open a new terminal and run the following command
+### Step 1: Open a new terminal and run the following command
 
 ```bash
 cd Desktop
 ```
 
-## Step 2: Clone the Repository
+### Step 2: Clone the Repository
 
 ```bash
 git clone https://github.com/Dennis-Maigua/willguard.git
 ```
 
-## Step 3: Change the Directory
+### Step 3: Change the Directory
 
 ```bash
 cd willguard/application
 ```
 
-# Getting Started
+## Getting Started
 
 >**Note**: Make sure you have installed the latest version of [Node.js](https://nodejs.org/en/download/package-manager) before proceeding.
 
-## Step 4: Install the Requirements
+### Step 4: Install the Requirements
 
 First, you will need to install all packages and dependencies for the project by running the following command from the terminal:
 
@@ -51,7 +51,7 @@ npm install
 yarn install
 ```
 
-## Step 5: Start the Metro Server
+### Step 5: Start the Metro Server
 
 You will need to start **Metro** (the JavaScript _bundler_ that ships _with_ React Native) by running the following command from the terminal:
 
@@ -63,17 +63,17 @@ npm start
 yarn start
 ```
 
-## Step 6: Start the Application
+### Step 6: Start the Application
 
-### Method 1: 
+#### Method 1: 
 
 From the terminal, press `a` to start the app on an _Android Emulator/Device_, or press `b` to start the app on an _iOS Simulator/Device_.
 
-### Method 2:
+#### Method 2:
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of the project and run the following command:
 
-#### For Android
+##### For Android
 
 ```bash
 # using npm
@@ -83,7 +83,7 @@ npm run android
 yarn android
 ```
 
-#### For iOS
+##### For iOS
 
 ```bash
 # using npm
@@ -97,5 +97,5 @@ If everything is set up correctly, you should see your new app running in your A
 
 This is one way to run your app — you can also run it directly in your smartphone or mobile device from within Android Studio and Xcode respectively.
    
-# Contributing:
+## Contributing:
 We welcome contributions from developers, legal experts, and blockchain enthusiasts. Feel free to fork the repository, make improvements, and submit pull requests.
