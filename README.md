@@ -19,19 +19,25 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 
 >**Note**: Make sure you have installed the latest version of [Git](https://git-scm.com/downloads) before proceeding.
 
-### Step 1: Open a new terminal and run the following command
+### 1. Open a new terminal
+
+Setup the project environment by running the following command:
 
 ```bash
 cd Desktop
 ```
 
-### Step 2: Clone the Repository
+### 2. Clone the Repository
+
+Download/Replicate the project to your environment using the following command:
 
 ```bash
 git clone https://github.com/Dennis-Maigua/willguard.git
 ```
 
-### Step 3: Change the Directory
+### 3. Open the Project Folder
+
+Open the _root directory_ of the project through the following command:
 
 ```bash
 cd willguard/application
@@ -41,9 +47,9 @@ cd willguard/application
 
 >**Note**: Make sure you have installed the latest version of [Node.js](https://nodejs.org/en/download/package-manager) before proceeding.
 
-### Step 4: Install the Requirements
+### 4: Install the Requirements
 
-First, you will need to install all packages and dependencies for the project by running the following command from the terminal:
+First, you will need to install all packages and dependencies for the project via the following command:
 
 ```bash
 # using npm
@@ -53,9 +59,9 @@ npm install
 yarn install
 ```
 
-### Step 5: Start the Metro Server
+### 5: Start the Metro Server
 
-You will need to start **Metro** (the JavaScript _bundler_ that ships _with_ React Native) by running the following command from the terminal:
+You will need to start **Metro** (the JavaScript _bundler_ that ships _with_ React Native) by running the following command:
 
 ```bash
 # using npm
@@ -65,7 +71,7 @@ npm start
 yarn start
 ```
 
-### Step 6: Start the Application
+### 6: Start the Application
 
 #### Method 1: 
 
