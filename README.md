@@ -37,7 +37,7 @@ git clone https://github.com/Dennis-Maigua/willguard.git
 cd willguard/application
 ```
 
-# Installation and Testing
+# Installation and Testing:
 
 >**Note**: Make sure you have installed the latest version of [Node.js](https://nodejs.org/en/download/package-manager) before proceeding.
 
