@@ -7,7 +7,7 @@ By harnessing the transparency, security, and immutability of blockchain, this D
 Traditional will-making processes are often cumbersome, prone to errors, and subject to legal complexities. 
 The Automated Wills DApp revolutionizes this process, offering a user-friendly platform that ensures the accurate execution of testamentary wishes while maintaining the highest standards of security and privacy.
 
-# Key Features:
+### Key Features:
 
 - **Smart Contract Execution**: Smart contracts autonomously execute the terms of the will, ensuring accuracy and reliability.
 - **Immutable Records**: All wills are securely stored on the blockchain, safeguarding them against tampering or loss.
