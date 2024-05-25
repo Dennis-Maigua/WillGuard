@@ -67,13 +67,13 @@ yarn start
 
 #### Method 1: 
 
-From the terminal, press `a` to start the app on an _Android Emulator/Device_, or press `b` to start the app on an _iOS Simulator/Device_.
+From the terminal, press the <kbd>A</kbd> key to start the app on _Android_, or press the <kbd>I</kbd> key to start the app on _iOS_.
 
 #### Method 2:
 
 Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of the project and run the following command:
 
-##### For Android
+#### For Android
 
 ```bash
 # using npm
@@ -83,7 +83,7 @@ npm run android
 yarn android
 ```
 
-##### For iOS
+#### For iOS
 
 ```bash
 # using npm
