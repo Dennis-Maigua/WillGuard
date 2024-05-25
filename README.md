@@ -71,7 +71,7 @@ npm start
 yarn start
 ```
 
-### 6, Start the Application
+### 6. Start the Application
 
 #### Method 1: 
 
