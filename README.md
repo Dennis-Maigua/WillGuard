@@ -9,27 +9,27 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 
 # Key Features:
 
-- [Smart Contract Execution]: Smart contracts autonomously execute the terms of the will, ensuring accuracy and reliability.
-- [Immutable Records]: All wills are securely stored on the blockchain, safeguarding them against tampering or loss.
-- [Decentralized Access]: Users can access and update their wills from anywhere in the world, without reliance on intermediaries.
-- [Privacy Protection]: Encryption protocols safeguard sensitive information, granting users peace of mind regarding data security.
-- [Legacy Planning Tools]: Additional features facilitate comprehensive legacy planning, including asset distribution and beneficiary management.
+- **Smart Contract Execution**: Smart contracts autonomously execute the terms of the will, ensuring accuracy and reliability.
+- **Immutable Records**: All wills are securely stored on the blockchain, safeguarding them against tampering or loss.
+- **Decentralized Access**: Users can access and update their wills from anywhere in the world, without reliance on intermediaries.
+- **Privacy Protection**: Encryption protocols safeguard sensitive information, granting users peace of mind regarding data security.
+- **Legacy Planning Tools**: Additional features facilitate comprehensive legacy planning, including asset distribution and beneficiary management.
 
 # Environment and Setup:
 
-Step 1: Open a new terminal and enter the following command
+## Step 1: Open a new terminal and enter the following command
 
 ```bash
 cd Desktop
 ```
 
-Step 2: Clone the Repository
+## Step 2: Clone the Repository
 
 ```bash
 git clone https://github.com/Dennis-Maigua/willguard.git
 ```
 
-Step 3: Change the Directory
+## Step 3: Change the Directory
 
 ```bash
 cd willguard/application
