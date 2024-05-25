@@ -1,6 +1,6 @@
 {
-  "name": "WillGuard",
-  "version": "0.0.1",
+  "name": "willguard",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -36,5 +36,8 @@
   },
   "engines": {
     "node": ">=18"
-  }
+  },
+  "description": "A mobile app for the project",
+  "author": "Dennis-Maigua",
+  "license": "ISC"
 }
