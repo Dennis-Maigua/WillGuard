@@ -15,7 +15,7 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 - **Privacy Protection**: Encryption protocols safeguard sensitive information, granting users peace of mind regarding data security.
 - **Legacy Planning Tools**: Additional features facilitate comprehensive legacy planning, including asset distribution and beneficiary management.
 
-## Environment and Setup:
+# Environment and Setup:
 
 ### Step 1: Open a new terminal and run the following command
 
@@ -35,7 +35,7 @@ git clone https://github.com/Dennis-Maigua/willguard.git
 cd willguard/application
 ```
 
-## Getting Started
+# Getting Started
 
 >**Note**: Make sure you have installed the latest version of [Node.js](https://nodejs.org/en/download/package-manager) before proceeding.
 
@@ -97,5 +97,5 @@ If everything is set up correctly, you should see your new app running in your A
 
 This is one way to run your app — you can also run it directly in your smartphone or mobile device from within Android Studio and Xcode respectively.
    
-## Contributing:
+# Contributing:
 We welcome contributions from developers, legal experts, and blockchain enthusiasts. Feel free to fork the repository, make improvements, and submit pull requests.
