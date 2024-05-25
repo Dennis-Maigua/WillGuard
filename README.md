@@ -17,6 +17,8 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 
 # Environment and Setup:
 
+>**Note**: Make sure you have installed the latest version of [Git](https://git-scm.com/downloads) before proceeding.
+
 ### Step 1: Open a new terminal and run the following command
 
 ```bash
