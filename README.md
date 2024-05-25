@@ -17,7 +17,7 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 
 # Environment and Setup:
 
-## Step 1: Open a new terminal and enter the following command
+## Step 1: Open a new terminal and run the following command
 
 ```bash
 cd Desktop
