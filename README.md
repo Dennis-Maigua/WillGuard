@@ -35,9 +35,9 @@ Download/Replicate the project to your environment using the following command:
 git clone https://github.com/Dennis-Maigua/willguard.git
 ```
 
-### 3. Open the Project Folder
+### 3. Open the App Folder
 
-Open the _root directory_ of the project through the following command:
+Open the _root directory_ of the application through the following command:
 
 ```bash
 cd willguard/application
