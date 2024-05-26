@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 
-const baseUrl = 'http://localhost:8000/api/user';
+const baseURL = 'http://localhost:8000/api/user';
 
 function Form() {
     const location = useLocation();
@@ -23,7 +23,7 @@ function Form() {
     const verifyToken = async () => {
         try {
             const { data } = await axios(
-                `${baseUrl}/verify-token?token=${token}&id=${id}`
+                `${baseURL}/verify-token?token=${token}&id=${id}`
             );
             setBusy(false);
         }
@@ -62,7 +62,7 @@ function Form() {
         try {
             setBusy(true);
             const { data } = await axios.post(
-                `${baseUrl}/reset-password?token=${token}&id=${id}`, { password }
+                `${baseURL}/reset-password?token=${token}&id=${id}`, { password }
             );
             setBusy(false);
 

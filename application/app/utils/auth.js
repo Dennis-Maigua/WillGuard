@@ -12,7 +12,7 @@ const catchError = error => {
 
 export const signup = async values => {
     try {
-        const { data } = await Client.post('/user/register', { ...values });
+        const { data } = await Client.post('/api/user/register', { ...values });
         return data;
     }
     catch (error) {
@@ -22,7 +22,7 @@ export const signup = async values => {
 
 export const login = async values => {
     try {
-        const { data } = await Client.post('/user/login', { ...values });
+        const { data } = await Client.post('/api/user/login', { ...values });
         return data;
     }
     catch (error) {
@@ -32,7 +32,7 @@ export const login = async values => {
 
 export const forgotPassword = async email => {
     try {
-        const { data } = await Client.post('/user/forgot-password', { email });
+        const { data } = await Client.post('/api/user/forgot-password', { email });
         return data;
     }
     catch (error) {
