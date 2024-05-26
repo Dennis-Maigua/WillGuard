@@ -12,7 +12,7 @@ const AppLink = ({ text, onPress }) => {
 const styles = StyleSheet.create({
     link: {
         fontSize: 16,
-        color: '#E8363C'
+        fontWeight: '600'
     }
 });
 

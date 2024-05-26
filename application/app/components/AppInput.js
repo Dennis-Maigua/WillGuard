@@ -1,15 +1,25 @@
-import { Dimensions, StyleSheet, TextInput } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { useFormikContext } from 'formik';
+import { Dimensions, StyleSheet, Text, TextInput } from 'react-native';
 
-const AppInput = ({ value, placeholder, onChange, ...rest }) => {
+const AppInput = ({ name, placeholder, ...rest }) => {
+    const { errors, values, touched, handleBlur, handleChange } = useFormikContext();
+    const value = values[name];
+    const error = errors[name];
+    const isInputTouched = touched[name];
+
     return (
-        <TextInput
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-            style={styles.input}
-            {...rest}
-        />
+        <>
+            {isInputTouched && error ? <Text style={styles.textError}>{error}</Text> : null}
+            <TextInput
+                value={value}
+                placeholder={placeholder}
+                onChangeText={handleChange(name)}
+                onBlur={handleBlur(name)}
+                style={styles.input}
+                {...rest}
+            />
+        </>
     );
 };
 
@@ -24,6 +34,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         borderRadius: 8,
         backgroundColor: '#EAE9E7'
+    },
+    textError: {
+        color: 'red',
+        paddingVertical: 3
     }
 });
 
