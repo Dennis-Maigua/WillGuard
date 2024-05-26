@@ -9,3 +9,11 @@ export const navigateToSignup = (navigation) => () => {
 export const navigateToForgotPassword = (navigation) => () => {
     navigation.navigate("forgotPassword");
 };
+
+export const updateNotification = (updater, text, type = 'error') => {
+    updater({ text, type });
+
+    setTimeout(() => {
+        updater({ text: '', type: '' })
+    }, 2500);
+};

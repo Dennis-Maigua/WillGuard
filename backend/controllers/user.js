@@ -36,38 +36,51 @@ exports.createUser = async (req, res) => {
         html: verifyEmailTemplate(OTP)
     });
 
-    res.send(newUser);
-};
-
-exports.login = async (req, res) => {
-    const { email, password } = req.body;
-    if (!email.trim() || !password.trim()) {
-        return sendError(res, "Incorrect email or password!");
-    }
-
-    const user = await User.findOne({ email });
-    if (!user) {
-        return sendError(res, 'User not found or does not exist!');
-    }
-
-    const isMatched = await user.comparePassword(password);
-    if (!isMatched) {
-        return sendError(res, 'Please enter the correct password!');
-    }
-
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-        expiresIn: '1d'
-    });
-
     res.json({
         success: true,
         user: {
-            name: user.name,
-            email: user.email,
-            id: user._id,
-            token
+            name: newUser.name,
+            email: newUser.email,
+            id: newUser._id,
+            verified: newUser.verified
         }
     });
+};
+
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        if (!email.trim() || !password.trim()) {
+            return sendError(res, "Incorrect email or password!");
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            return sendError(res, 'User not found or does not exist!');
+        }
+
+        const isMatched = await user.comparePassword(password);
+        if (!isMatched) {
+            return sendError(res, 'Please enter the correct password!');
+        }
+
+        const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '1d'
+        });
+
+        res.json({
+            success: true,
+            user: {
+                name: user.name,
+                email: user.email,
+                id: user._id,
+                token
+            }
+        });
+    }
+    catch (error) {
+        return sendError(res, error.message, 500);
+    }
 };
 
 exports.verifyEmail = async (req, res) => {

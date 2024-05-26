@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import * as yup from 'yup';
 
@@ -6,8 +6,10 @@ import FormContainer from './FormContainer';
 import AppInput from './AppInput';
 import SubmitButton from './SubmitButton';
 import FormNavigator from './FormNavigator';
-import { navigateToForgotPassword, navigateToLogin } from '../utils/helper';
+import { navigateToForgotPassword, navigateToLogin, updateNotification } from '../utils/helper';
 import CustomFormik from './CustomFormik';
+import { signup } from '../utils/auth';
+import AppNotification from './AppNotification';
 
 const initiateValues = {
     name: '',
@@ -23,28 +25,39 @@ const validateSchema = yup.object({
 
 export default function SignUp() {
     const navigation = useNavigation();
+    const [message, setMessage] = useState({
+        text: '',
+        type: ''
+    });
 
-    const handleSignUp = (values, formikActions) => {
-        setTimeout(() => {
-            console.log(values, formikActions);
-            formikActions.resetForm();
-            formikActions.setSubmitting(false);
-        }, 3000);
+    const handleSignUp = async (values, formikActions) => {
+        const res = await signup(values);
+        formikActions.setSubmitting(false);
+
+        if (!res.success) {
+            return updateNotification(setMessage, res.error);
+        }
+
+        formikActions.resetForm();
+        console.log(res);
     };
 
     return (
-        <FormContainer>
-            <CustomFormik initialValues={initiateValues} validationSchema={validateSchema} onSubmit={handleSignUp} >
-                <AppInput name="name" placeholder="Name" />
-                <AppInput name="email" placeholder="Email" />
-                <AppInput secureTextEntry name="password" placeholder="Password" />
-                <SubmitButton title="Sign Up" />
-                <FormNavigator
-                    leftLinkPress={navigateToLogin(navigation)}
-                    rightLinkPress={navigateToForgotPassword(navigation)}
-                    leftLinkText="Log In"
-                    rightLinkText="Forgot password?" />
-            </CustomFormik>
-        </FormContainer>
+        <>
+            {message.text ? <AppNotification type={message.type} text={message.text} /> : null}
+            <FormContainer>
+                <CustomFormik initialValues={initiateValues} validationSchema={validateSchema} onSubmit={handleSignUp} >
+                    <AppInput name="name" placeholder="Name" />
+                    <AppInput name="email" placeholder="Email" />
+                    <AppInput secureTextEntry name="password" placeholder="Password" />
+                    <SubmitButton title="Sign Up" />
+                    <FormNavigator
+                        leftLinkPress={navigateToLogin(navigation)}
+                        rightLinkPress={navigateToForgotPassword(navigation)}
+                        leftLinkText="Log In"
+                        rightLinkText="Forgot password?" />
+                </CustomFormik>
+            </FormContainer>
+        </>
     );
 }

@@ -1,19 +1,17 @@
 const crypto = require('crypto');
 
-exports.sendError = (res, error, status=401) => {
-    return res
-    .status(status)
-    .json({success: false, error});
+exports.sendError = (res, error, status = 401) => {
+    return res.status(status).json({ success: false, error });
 };
 
-exports.createRandomBytes = () => 
+exports.createRandomBytes = () =>
     new Promise((resolve, reject) => {
-    crypto.randomBytes(30, (err, buff) => {
-        if(err) {
-            reject(err);
-        }
+        crypto.randomBytes(30, (err, buff) => {
+            if (err) {
+                reject(err);
+            }
 
-        const token = buff.toString('hex');
-        resolve(token);
+            const token = buff.toString('hex');
+            resolve(token);
+        });
     });
-});
