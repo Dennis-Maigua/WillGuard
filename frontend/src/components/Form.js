@@ -110,7 +110,7 @@ function Form() {
         return (
             <div className="max-w-screen-sm m-auto pt-40">
                 <h1 className="text-center text-3xl text-gray-500 mb-3">
-                    Please wait for a moment while verifying your reset token.
+                    Please wait while we verify your reset token.
                 </h1>
             </div>
         );
@@ -134,19 +134,19 @@ function Form() {
                         name="password"
                         placeholder="New Password"
                         onChange={handleOnChange}
-                        className="px-4 text-lg h-10 w-full border-gray-500 shadow-md rounded"
+                        className="px-4 text-lg h-10 bg-gray-100 w-full border-gray-500 shadow rounded"
                     />
                     <input
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm Password"
                         onChange={handleOnChange}
-                        className="px-4 text-lg h-10 w-full border-gray-500 shadow-md rounded"
+                        className="px-4 text-lg h-10 bg-gray-100 w-full border-gray-500 shadow rounded"
                     />
                     <input
                         type="submit"
                         value="Reset Password"
-                        className="bg-red-500 w-full py-3 text-white font-bold rounded shadow"
+                        className="bg-red-500 w-full py-2 text-white font-bold rounded shadow"
                     />
                 </div>
             </form>

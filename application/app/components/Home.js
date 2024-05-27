@@ -1,4 +1,4 @@
-import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { StackActions, useNavigation } from '@react-navigation/native';
 
