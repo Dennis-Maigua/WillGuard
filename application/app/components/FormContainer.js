@@ -5,7 +5,7 @@ const FormContainer = ({ children }) => {
     return (
         <KeyboardAvoidingView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
-                <Image style={styles.logo} source={require('../assets/avatar.png')} />
+                <Image style={styles.logo} source={require('../assets/logo.png')} />
                 {children}
             </ScrollView>
         </KeyboardAvoidingView>
@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     logo: {
-        height: 125,
-        width: 125,
+        height: 150,
+        width: 150,
         marginBottom: 20,
         marginTop: height * 0.1,
         alignSelf: 'center'
