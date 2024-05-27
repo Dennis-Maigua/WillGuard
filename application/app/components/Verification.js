@@ -74,7 +74,7 @@ const Verification = ({ route, navigation }) => {
                                 <TextInput
                                     value={OTP[index]}
                                     onChangeText={(text) => handleOnChange(text, index)}
-                                    placeholder='*'
+                                    placeholder=''
                                     style={styles.input}
                                     keyboardType='numeric'
                                     maxLength={1}
@@ -84,7 +84,7 @@ const Verification = ({ route, navigation }) => {
                     })}
                 </View>
                 <TouchableOpacity style={styles.submitIcon} onPress={submitOTP}>
-                    <FontAwesome6 name={'check'} size={24} color='#FFF' />
+                    <FontAwesome6 name={'check'} size={20} color='#FFF' />
                 </TouchableOpacity>
             </KeyboardAvoidingView>
         </>
@@ -119,14 +119,13 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: 25,
-        backgroundColor: '#EAE9E7',
         paddingHorizontal: 18
     },
     submitIcon: {
         alignSelf: 'center',
         padding: 20,
         backgroundColor: '#E8363C',
-        borderRadius: 40,
+        borderRadius: 30,
         marginTop: 15
     }
 });

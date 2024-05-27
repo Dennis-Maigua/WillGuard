@@ -148,7 +148,7 @@ exports.forgotPassword = async (req, res) => {
 
     const token = await ResetToken.findOne({ owner: user._id });
     if (token) {
-        return sendError(res, 'Invalid token! Please wait for 1 hour to request for another token!');
+        return sendError(res, 'Please wait for 1 hour to request for another token!');
     }
 
     const randomBytes = await createRandomBytes();

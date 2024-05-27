@@ -38,14 +38,14 @@ exports.verifyEmailTemplate = code => {
                         padding: 5px;
                     }
                 }
-                .container {
+                div {
                     max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
                     color: #272727;
                 }
-                .title {
+                h1 {
                     background: #f6f6f6;
                     padding: 10px;
                 }
@@ -60,11 +60,11 @@ exports.verifyEmailTemplate = code => {
             </style>
         </head>
         <body>
-            <div class="container">
-                <h1 class="title"> Email Verification </h1>
+            <div>
+                <h1> Email Verification </h1>
                 <p> Please enter the OTP below to verify your email address: </p>
                 <p class="otp"> ${code} </p>
-                <br>
+                <br />
                 <p> This verification code will only be valid for 1 hour and will expire after use! </p>
             </div>
         </body>
@@ -100,10 +100,10 @@ exports.welcomeEmailTemplate = (heading, message) => {
             </style>
         </head>
         <body>
-            <div class="container">
-                <h1 class="title"> ${heading} </h1>
+            <div>
+                <h1> ${heading} </h1>
                 <p> ${message} </p>
-                <br>
+                <br />
                 <p> Thank you for joining our community! </p>
             </div>
         </body>
@@ -125,36 +125,33 @@ exports.resetPasswordTemplate = url => {
                         padding: 5px;
                     }
                 }
-                .container {
+                div {
                     max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
                     color: #272727;
                 }
-                .title {
+                h1 {
                     background: #f6f6f6;
                     padding: 10px;
                 }
-                a {
-                    margin: 0 auto;
-                    padding: 20px;
-                    background: #e63946;
+                button {
+                    color: white;
+                    background: #E8363C;
+                    padding: 15px 30px;
                     border-radius: 5px;
-                    font-size: 20px 10px;
-                    color: #fff;
-                    cursor: pointer;
-                    text-decoration: none;
-                    display: inline-block;
+                    border: 0;
+                    font-size: 16px;
                 }
             </style>
         </head>
         <body>
-            <div class="container">
-                <h1 class="title"> Reset Password </h1>
+            <div>
+                <h1> Reset Password </h1>
                 <p> Please click the reset link below to change your password: </p>
-                <a href="${url}"> Reset Password </a>
-                <br>
+                <a href="${url}"> <button> Reset Password </button> </a>
+                <br />
                 <p> If this was not you, please ignore this email! </p>
             </div>
         </body>
@@ -176,24 +173,24 @@ exports.resetSuccessTemplate = (heading, message) => {
                         padding: 5px;
                     }
                 }
-                .container {
+                div {
                     max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
                     color: #272727;
                 }
-                .title {
+                h1 {
                     background: #f6f6f6;
                     padding: 10px;
                 }
             </style>
         </head>
         <body>
-            <div class="container">
-                <h1 class="title"> ${heading} </h1>
+            <div>
+                <h1> ${heading} </h1>
                 <p> ${message} </p>
-                <br>
+                <br />
                 <p> If this was not you, contact our support via email! </p>
             </div>
         </body>

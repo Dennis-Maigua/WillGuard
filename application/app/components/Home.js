@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { Button, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { StackActions, useNavigation } from '@react-navigation/native';
 
@@ -13,8 +13,10 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.pageTitle}>Home</Text>
-            <Button style={styles.btnLogout} onPress={handleLogOut} title="Log Out" />
+            <Text style={styles.pageTitle}>Welcome to WillGuard!</Text>
+            <Pressable style={styles.button} onPress={handleLogOut}>
+                <Text style={styles.text}>Log Out</Text>
+            </Pressable>
         </View>
     );
 }
@@ -22,7 +24,8 @@ export default function Home() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     pageTitle: {
         marginBottom: 20,
@@ -31,14 +34,16 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold'
     },
-    btnLogout: {
-        height: 50,
-        marginHorizontal: 50,
-        borderRadius: 8,
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: 20,
-        color: '#FFF',
-        backgroundColor: '#E8363C'
+    button: {
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 4,
+        elevation: 3,
+        backgroundColor: '#E8363C',
+    },
+    text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'white',
     }
 });

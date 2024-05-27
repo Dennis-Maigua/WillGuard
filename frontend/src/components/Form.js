@@ -134,19 +134,19 @@ function Form() {
                         name="password"
                         placeholder="New Password"
                         onChange={handleOnChange}
-                        className="px-3 text-lg h-10 w-full border-gray-500 border-2 rounded"
+                        className="px-4 text-lg h-10 w-full border-gray-500 shadow-md rounded"
                     />
                     <input
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm Password"
                         onChange={handleOnChange}
-                        className="px-3 text-lg h-10 w-full border-gray-500 border-2 rounded"
+                        className="px-4 text-lg h-10 w-full border-gray-500 shadow-md rounded"
                     />
                     <input
                         type="submit"
                         value="Reset Password"
-                        className="bg-red-500 w-full py-3 text-white rounded"
+                        className="bg-red-500 w-full py-3 text-white font-bold rounded shadow"
                     />
                 </div>
             </form>

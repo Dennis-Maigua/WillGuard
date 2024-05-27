@@ -33,7 +33,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         marginBottom: 20,
         borderRadius: 8,
-        backgroundColor: '#EAE9E7'
+        backgroundColor: '#EAE9E7',
+        elevation: 3
     },
     textError: {
         color: 'red',
