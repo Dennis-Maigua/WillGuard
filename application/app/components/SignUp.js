@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import * as yup from 'yup';
 
 import FormContainer from './FormContainer';
@@ -25,10 +25,7 @@ const validateSchema = yup.object({
 
 export default function SignUp() {
     const navigation = useNavigation();
-    const [message, setMessage] = useState({
-        text: '',
-        type: ''
-    });
+    const [message, setMessage] = useState({ text: '', type: '' });
 
     const handleSignUp = async (values, formikActions) => {
         const res = await signup(values);
@@ -39,7 +36,13 @@ export default function SignUp() {
         }
 
         formikActions.resetForm();
-        console.log(res);
+        updateNotification(setMessage, res.message, 'success');
+
+        // setTimeout(() => {}, 3000);
+
+        navigation.dispatch(
+            StackActions.replace('verification', { profile: res.user })
+        );
     };
 
     return (

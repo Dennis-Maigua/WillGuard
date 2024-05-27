@@ -13,7 +13,6 @@ const SubmitButton = ({ title }) => {
     );
 };
 
-
 const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({

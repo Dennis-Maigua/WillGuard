@@ -8,43 +8,43 @@ const { generateOTP, mailTransport, verifyEmailTemplate, welcomeEmailTemplate, r
 const { sendError, createRandomBytes } = require('../utils/helper');
 
 exports.createUser = async (req, res) => {
-    const { name, email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (user) {
-        return sendError(res, "This email already exists!");
-    }
-
-    const newUser = new User({
-        name,
-        email,
-        password
-    });
-
-    const OTP = generateOTP();
-    const verificationToken = new VerificationToken({
-        owner: newUser._id,
-        token: OTP
-    });
-
-    await verificationToken.save();
-    await newUser.save();
-
-    mailTransport().sendMail({
-        from: 'no-reply@willguard.io',
-        to: newUser.email,
-        subject: 'Verify your Email Address',
-        html: verifyEmailTemplate(OTP)
-    });
-
-    res.json({
-        success: true,
-        user: {
-            name: newUser.name,
-            email: newUser.email,
-            id: newUser._id,
-            verified: newUser.verified
+    try {
+        const { name, email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (user) {
+            return sendError(res, "This email already exists!");
         }
-    });
+
+        const newUser = new User({
+            name,
+            email,
+            password
+        });
+
+        const OTP = generateOTP();
+        const verificationToken = new VerificationToken({
+            owner: newUser._id,
+            token: OTP
+        });
+
+        await verificationToken.save();
+        await newUser.save();
+
+        mailTransport().sendMail({
+            from: 'no-reply@willguard.io',
+            to: newUser.email,
+            subject: 'Verify your Email Address',
+            html: verifyEmailTemplate(OTP)
+        });
+
+        res.json({
+            success: true,
+            message: 'Sign Up Successful!'
+        });
+    }
+    catch (error) {
+        return sendError(res, error.message, 500);
+    }
 };
 
 exports.login = async (req, res) => {
@@ -70,12 +70,7 @@ exports.login = async (req, res) => {
 
         res.json({
             success: true,
-            user: {
-                name: user.name,
-                email: user.email,
-                id: user._id,
-                token
-            }
+            message: 'Login Successful!'
         });
     }
     catch (error) {
@@ -84,119 +79,129 @@ exports.login = async (req, res) => {
 };
 
 exports.verifyEmail = async (req, res) => {
-    const { userId, otp } = req.body;
-    if (!userId || !otp.trim()) {
-        return sendError(res, 'Invalid request!');
-    }
-    if (!isValidObjectId(userId)) {
-        return sendError(res, 'Invalid user ID!');
-    }
-
-    const user = await User.findById(userId);
-    if (!user) {
-        return sendError(res, 'User not found or does not exist!');
-    }
-    if (user.verified) {
-        return sendError(res, 'This account is already verified!');
-    }
-
-    const token = await VerificationToken.findOne({ owner: user._id });
-    if (!token) {
-        return sendError(res, 'User not found or does not exist!');
-    }
-
-    const isMatched = await token.compareToken(otp);
-    if (!isMatched) {
-        return sendError(res, 'Invalid token!');
-    }
-
-    user.verified = true;
-    await VerificationToken.findByIdAndDelete(token._id);
-    await user.save();
-
-    mailTransport().sendMail({
-        from: 'no-reply@willguard.io',
-        to: user.email,
-        subject: 'Email Verification Successful',
-        html: welcomeEmailTemplate('Welcome to WillGuard',
-            'Your email has been verified successfully! You can now login using your new account.')
-    });
-
-    res.json({
-        success: true,
-        message: "Email Verification Successful",
-        user: {
-            name: user.name,
-            email: user.email,
-            id: user._id
+    try {
+        const { userId, otp } = req.body;
+        if (!userId || !otp.trim()) {
+            return sendError(res, 'Invalid request!');
         }
-    });
+        if (!isValidObjectId(userId)) {
+            return sendError(res, 'Invalid user ID!');
+        }
+
+        const user = await User.findById(userId);
+        if (!user) {
+            return sendError(res, 'User not found or does not exist!');
+        }
+        if (user.verified) {
+            return sendError(res, 'This account is already verified!');
+        }
+
+        const token = await VerificationToken.findOne({ owner: user._id });
+        if (!token) {
+            return sendError(res, 'User not found or does not exist!');
+        }
+
+        const isMatched = await token.compareToken(otp);
+        if (!isMatched) {
+            return sendError(res, 'Invalid token!');
+        }
+
+        user.verified = true;
+        await VerificationToken.findByIdAndDelete(token._id);
+        await user.save();
+
+        mailTransport().sendMail({
+            from: 'no-reply@willguard.io',
+            to: user.email,
+            subject: 'Email Verification Successful',
+            html: welcomeEmailTemplate('Welcome to WillGuard',
+                'Your email has been verified successfully! You can now login using your new account.')
+        });
+
+        res.json({
+            success: true,
+            message: 'Email Verification Successful!'
+        });
+    }
+    catch (error) {
+        return sendError(res, error.message, 500);
+    }
 };
 
 exports.forgotPassword = async (req, res) => {
-    const { email } = req.body;
-    if (!email) {
-        return sendError(res, 'Please provide a valid email address!');
+    try {
+        const { email } = req.body;
+        if (!email) {
+            return sendError(res, 'Please provide a valid email address!');
+        }
+
+        const user = await User.findOne({ email });
+        if (!user) {
+            return sendError(res, 'User not found or does not exist!');
+        }
+
+        const token = await ResetToken.findOne({ owner: user._id });
+        if (token) {
+            return sendError(res, 'Invalid token! Please wait for 1 hour to request for another token!');
+        }
+
+        const randomBytes = await createRandomBytes();
+        const resetToken = new ResetToken({ owner: user._id, token: randomBytes });
+        await resetToken.save();
+
+        mailTransport().sendMail({
+            from: 'no-reply@willguard.io',
+            to: user.email,
+            subject: 'Reset your Password',
+            html: resetPasswordTemplate(`http://localhost:3000/reset-password?token=${randomBytes}&id=${user._id}`)
+        });
+
+        res.json({
+            success: true,
+            message: 'Password reset link has been sent to your email!'
+        });
     }
-
-    const user = await User.findOne({ email });
-    if (!user) {
-        return sendError(res, 'User not found or does not exist!');
+    catch (error) {
+        return sendError(res, error.message, 500);
     }
-
-    const token = await ResetToken.findOne({ owner: user._id });
-    if (token) {
-        return sendError(res, 'Invalid token! Please wait for 1 hour to request for another token!');
-    }
-
-    const randomBytes = await createRandomBytes();
-    const resetToken = new ResetToken({ owner: user._id, token: randomBytes });
-    await resetToken.save();
-
-    mailTransport().sendMail({
-        from: 'no-reply@willguard.io',
-        to: user.email,
-        subject: 'Reset your Password',
-        html: resetPasswordTemplate(`http://localhost:3000/reset-password?token=${randomBytes}&id=${user._id}`)
-    });
-
-    res.json({
-        success: true,
-        message: 'Password reset link has been sent to your email address'
-    });
 };
 
 exports.resetPassword = async (req, res) => {
-    const { password } = req.body;
+    try {
+        const { password } = req.body;
 
-    const user = await User.findById(req.user._id);
-    if (!user) {
-        return sendError(res, 'User not found or does not exist!');
+        const user = await User.findById(req.user._id);
+        if (!user) {
+            return sendError(res, 'User not found or does not exist!');
+        }
+
+        const isSamePassword = await user.comparePassword(password);
+        if (isSamePassword) {
+            return sendError(res, 'Please enter a different password!');
+        }
+
+        if (password.trim().length < 8 || password.trim().length > 20) {
+            return sendError(res, 'Password must be 8 to 20 characters long!');
+        }
+
+        user.password = password.trim();
+        await user.save();
+        await ResetToken.findOneAndDelete({ owner: user._id });
+
+        mailTransport().sendMail({
+            from: 'no-reply@willguard.io',
+            to: user.email,
+            subject: 'Password Reset Successful',
+            html: resetSuccessTemplate('Congratulations!',
+                'Your password has been changed successfully! You can now login with your new password.')
+        });
+
+        res.json({
+            success: true,
+            message: "Password Reset Successful!"
+        });
     }
-
-    const isSamePassword = await user.comparePassword(password);
-    if (isSamePassword) {
-        return sendError(res, 'Please enter a different password!');
+    catch (error) {
+        return sendError(res, error.message, 500);
     }
-
-    if (password.trim().length < 8 || password.trim().length > 20) {
-        return sendError(res, 'Password must be 8 to 20 characters long!');
-    }
-
-    user.password = password.trim();
-    await user.save();
-    await ResetToken.findOneAndDelete({ owner: user._id });
-
-    mailTransport().sendMail({
-        from: 'no-reply@willguard.io',
-        to: user.email,
-        subject: 'Password Reset Successful',
-        html: resetSuccessTemplate('Congratulations!',
-            'Your password has been changed successfully! You can now login with your new password.')
-    });
-
-    res.json({
-        success: true,
-        message: "Password Reset Successful"
-    });
 };

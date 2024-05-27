@@ -16,7 +16,7 @@ const AppNotification = ({ type, text }) => {
 
     return (
         <Animated.View style={[styles.container, { height, backgroundColor }]}>
-            <Text style={styles.textNotif}>{text}</Text>
+            <Text style={styles.notification}>{text}</Text>
         </Animated.View>
     );
 }
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingHorizontal: 15
     },
-    textNotif: {
+    notification: {
         color: '#FFF',
         fontSize: 16
     }

@@ -21,10 +21,7 @@ const validateSchema = yup.object({
 
 export default function ForgotPassword() {
     const navigation = useNavigation();
-    const [message, setMessage] = useState({
-        text: '',
-        type: ''
-    });
+    const [message, setMessage] = useState({ text: '', type: '' });
 
     const handleResetLink = async (values, formikActions) => {
         const res = await forgotPassword(values.email);

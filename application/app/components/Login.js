@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { StackActions, useNavigation } from '@react-navigation/native';
 import * as yup from 'yup';
 
 import FormContainer from './FormContainer';
@@ -26,10 +26,7 @@ const validateSchema = yup.object({
 
 export default function Login() {
     const navigation = useNavigation();
-    const [message, setMessage] = useState({
-        text: '',
-        type: ''
-    });
+    const [message, setMessage] = useState({ text: '', type: '' });
 
     const handleLogin = async (values, formikActions) => {
         const res = await login(values);
@@ -40,7 +37,14 @@ export default function Login() {
         }
 
         formikActions.resetForm();
-        console.log(res);
+        updateNotification(setMessage, res.message, 'success');
+
+        setTimeout(() => {
+            navigation.dispatch(
+                StackActions.replace('home', { profile: res.user })
+            );
+        }, 1000);
+
     };
 
     return (

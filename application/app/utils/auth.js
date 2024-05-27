@@ -39,3 +39,25 @@ export const forgotPassword = async email => {
         return catchError(error);
     }
 };
+
+export const verifyEmail = async (otp, userId) => {
+    try {
+        const { data } = await Client.post('/api/user/verify-email', { otp, userId });
+        return data;
+    }
+    catch (error) {
+        return catchError(error);
+    }
+};
+
+/*
+export const logout = async userId => {
+    try {
+        const { data } = await Client.post('/api/user/logout', { userId });
+        return data;
+    }
+    catch (error) {
+        return catchError(error);
+    }
+};
+*/
