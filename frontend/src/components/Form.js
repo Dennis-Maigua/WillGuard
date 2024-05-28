@@ -90,8 +90,10 @@ function Form() {
         return (
             <div className="max-w-screen-sm m-auto pt-40">
                 <h1 className="text-center text-3xl text-gray-500 mb-3">
-                    Password Reset Successful
+                    Password Reset Successful!
                 </h1>
+                <br />
+                <p className="text-center text-lg text-gray-500">Please return to the app and login using your new password.</p>
             </div>
         );
     }

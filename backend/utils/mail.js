@@ -39,7 +39,6 @@ exports.verifyEmailTemplate = code => {
                     }
                 }
                 div {
-                    max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
