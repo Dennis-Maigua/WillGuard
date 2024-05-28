@@ -87,7 +87,6 @@ exports.welcomeEmailTemplate = (heading, message) => {
                     }
                 }
                 div {
-                    max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
@@ -126,7 +125,6 @@ exports.resetPasswordTemplate = url => {
                     }
                 }
                 div {
-                    max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
@@ -174,7 +172,6 @@ exports.resetSuccessTemplate = (heading, message) => {
                     }
                 }
                 div {
-                    max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
