@@ -124,7 +124,7 @@ function Form() {
 
             <form onSubmit={handleSubmit} className="shadow w-full rounded-lg p-10">
                 {error && (
-                    <p className="text-center p-2 mb-3 bg-red-500 text-white">
+                    <p className="p-2 mb-3 text-center text-red-500 font-medium">
                         {error}
                     </p>
                 )}

@@ -86,14 +86,14 @@ exports.welcomeEmailTemplate = (heading, message) => {
                         padding: 5px;
                     }
                 }
-                .container {
+                div {
                     max-width: 620px;
                     margin: 0 auto;
                     font-family: sans-serif;
                     text-align: center;
                     color: #272727;
                 }
-                .title {
+                h1 {
                     background: #f6f6f6;
                     padding: 10px;
                 }
