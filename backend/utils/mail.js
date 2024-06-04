@@ -149,7 +149,7 @@ exports.resetPasswordTemplate = url => {
                 <p> Please click the reset link below to change your password: </p>
                 <a href="${url}"> <button> Reset Password </button> </a>
                 <br />
-                <p> If this was not you, please ignore this email! </p>
+                <p> If this was a mistake, please ignore this email and nothing will happen. </p>
             </div>
         </body>
     </html>
@@ -187,7 +187,7 @@ exports.resetSuccessTemplate = (heading, message) => {
                 <h1> ${heading} </h1>
                 <p> ${message} </p>
                 <br />
-                <p> If this was not you, contact our support via email! </p>
+                <p> If this was a mistake, please ignore this email and nothing will happen. </p>
             </div>
         </body>
     </html>
