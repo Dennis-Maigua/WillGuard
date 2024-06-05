@@ -11,13 +11,16 @@ exports.generateOTP = () => {
 
 exports.mailTransport = () => {
     var transport = nodemailer.createTransport({
-        service: "gmail",
         host: "smtp.gmail.com",
         port: 587,
         secure: false,
+        requireTLS: true,
         auth: {
             user: process.env.USER_NAME,
             pass: process.env.PASS_WORD
+        },
+        tls: {
+            ciphers: "SSLv3"
         }
     });
 
