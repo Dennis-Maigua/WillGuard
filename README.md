@@ -53,9 +53,13 @@ First, you will need to install all packages and dependencies for the project vi
 
 ```bash
 # using npm
+npm i -g npm-check-updates
+ncu -u
 npm install
 
 # OR using Yarn
+yarn i -g yarn-check-updates
+ncu -u
 yarn install
 ```
 
