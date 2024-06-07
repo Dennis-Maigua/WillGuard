@@ -93,7 +93,7 @@ function Form() {
                     Password Reset Successful!
                 </h1>
                 <br />
-                <p className="text-center text-lg text-gray-500">Please return to the app and login using your new password.</p>
+                <p className="text-center text-lg text-gray-500">Please return to the app and log in using your new password.</p>
             </div>
         );
     }
@@ -148,7 +148,7 @@ function Form() {
                     <input
                         type="submit"
                         value="Reset Password"
-                        className="bg-red-500 w-full py-2 text-white font-bold rounded shadow"
+                        className="bg-red-500 w-full py-2 text-white font-bold rounded shadow cursor-pointer"
                     />
                 </div>
             </form>

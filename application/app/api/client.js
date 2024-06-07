@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const Client = axios.create({
-    baseURL: 'https://629a-2c0f-fe38-2406-6b0c-ac41-1d79-3d49-a812.ngrok-free.app'
+    baseURL: 'https://cb82-41-80-113-39.ngrok-free.app'
 
     // for emulator: 'http://192.168.100.142:8000' 
-    // for device: 'https://xxxx-xx-xxx.ngrok-free.app'
+    // for device: 'https://xxxx-xx-xx-xxx.ngrok-free.app'
 
 });
 
