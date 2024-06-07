@@ -1,11 +1,14 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Form from "./components/Form";
 
 function App() {
   return (
-    <Routes>
-      <Route path='/reset-password' element={<Form />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={null} />
+        <Route path='/reset-password' element={<Form />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
