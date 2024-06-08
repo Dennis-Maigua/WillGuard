@@ -43,8 +43,8 @@ exports.verifyEmailTemplate = code => {
                 }
                 div {
                     margin: 0 auto;
-                    font-family: sans-serif;
                     text-align: center;
+                    font-family: sans-serif;
                     color: #272727;
                 }
                 h1 {
@@ -64,10 +64,10 @@ exports.verifyEmailTemplate = code => {
         <body>
             <div>
                 <h1> Email Verification </h1>
-                <p> Please enter the OTP below to verify your email address: </p>
+                <p> Please enter this OTP code to verify your email address: </p>
                 <p class="otp"> ${code} </p>
                 <br />
-                <p> This verification code will only be valid for 1 hour and will expire after use! </p>
+                <p> This code is only valid for 1 hour and will expire after use! </p>
             </div>
         </body>
     </html>
