@@ -25,7 +25,7 @@ Copy the project to your local machine (Desktop):
 
 ```bash
     $ cd Desktop
-    $ git clone https://github.com/Dennis-Maigua/mern-auth-app.git
+    $ git clone https://github.com/Dennis-Maigua/willguard.git
     $ exit
 ```
 
@@ -37,12 +37,12 @@ Open the project folders in 3 terminals, install their packages/dependencies, an
 
 ```bash
     # using npm
-    $ cd Destop/mern-auth-app/backend
+    $ cd Destop/willguard/backend
     $ npm i
     $ npm start
 
     # OR using Yarn
-    $ cd Desktop/mern-auth-app/backend
+    $ cd Desktop/willguard/backend
     $ yarn i
     $ yarn start
 ```
@@ -51,12 +51,12 @@ Open the project folders in 3 terminals, install their packages/dependencies, an
 
 ```bash
     # using npm
-    $ cd Destop/mern-auth-app/frontend
+    $ cd Destop/willguard/frontend
     $ npm i
     $ npm start
 
     # OR using Yarn
-    $ cd Desktop/mern-auth-app/frontend
+    $ cd Desktop/willguard/frontend
     $ yarn i
     $ yarn start
 ```
@@ -65,12 +65,12 @@ Open the project folders in 3 terminals, install their packages/dependencies, an
 
 ```bash
     # using npm
-    $ cd Destop/mern-auth-app/application
+    $ cd Destop/willguard/application
     $ npm i
     $ npm start
 
     # OR using Yarn
-    $ cd Desktop/mern-auth-app/application
+    $ cd Desktop/willguard/application
     $ yarn i
     $ yarn start
 ```
