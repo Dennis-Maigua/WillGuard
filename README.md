@@ -2,6 +2,8 @@
 
 This project is licensed under the MIT license.
 
+# Overview
+
 WillGuard is a decentralized application (DApp) leveraging blockchain technology and smart contracts to streamline the creation and execution of wills.
 By harnessing the transparency, security, and immutability of blockchain, this DApp offers users a reliable and efficient solution for managing their testamentary wishes. 
 Traditional will-making processes are often cumbersome, prone to errors, and subject to legal complexities. 
@@ -17,90 +19,94 @@ The Automated Wills DApp revolutionizes this process, offering a user-friendly p
 
 # Environment and Setup:
 
->**Note**: Make sure you have installed the latest version of [Git](https://git-scm.com/downloads) before proceeding.
+>**Note**: Make sure you have installed the latest version of [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/en/download/package-manager), and [MongoDB](https://www.mongodb.com/try/download/community) before proceeding.
 
-### 1. Open a new terminal
+### 1. Clone the Repository
 
-Setup the project environment by running the following command:
-
-```bash
-cd Desktop
-```
-
-### 2. Clone the Repository
-
-Download/Replicate the project to your environment using the following command:
+Copy the project to your local machine (Desktop):
 
 ```bash
-git clone https://github.com/Dennis-Maigua/willguard.git
+    $ cd Desktop
+    $ git clone https://github.com/Dennis-Maigua/willguard.git
+    $ exit
 ```
 
-### 3. Open the App Folder
+### 2. Run the Application, Backend, and Frontend
 
-Open the _root directory_ of the application through the following command:
+Open the project folders in 3 terminals, install their packages/dependencies, and run them seperately:
+
+- Terminal 1 (Backend/Server):
 
 ```bash
-cd willguard/application
+    # using npm
+    $ cd Destop/willguard/backend
+    $ npm i
+    $ npm start
+
+    # OR using Yarn
+    $ cd Desktop/willguard/backend
+    $ yarn i
+    $ yarn start
 ```
 
-# Installation and Testing:
-
->**Note**: Make sure you have installed the latest version of [Node.js](https://nodejs.org/en/download/package-manager) before proceeding.
-
-### 4. Install the Requirements
-
-First, you will need to install all packages and dependencies for the project via the following command:
+- Terminal 2 (Frontend/Client):
 
 ```bash
-# using npm
-npm i -g npm-check-updates
-ncu -u
-npm install
+    # using npm
+    $ cd Destop/willguard/frontend
+    $ npm i
+    $ npm start
 
-# OR using Yarn
-yarn i -g yarn-check-updates
-ncu -u
-yarn install
+    # OR using Yarn
+    $ cd Desktop/willguard/frontend
+    $ yarn i
+    $ yarn start
 ```
 
-### 5. Start the Metro Server
-
-You will need to start **Metro** (the JavaScript _bundler_ that ships _with_ React Native) by running the following command:
+- Terminal 3 (Application/Mobile App):
 
 ```bash
-# using npm
-npm start
+    # using npm
+    $ cd Destop/willguard/application
+    $ npm i
+    $ npm start
 
-# OR using Yarn
-yarn start
+    # OR using Yarn
+    $ cd Desktop/willguard/application
+    $ yarn i
+    $ yarn start
 ```
 
-### 6. Start the Application
+### 3. Run the Metro Server (the JavaScript _bundler_ for React Native)
 
-From the terminal, press the <kbd>A</kbd> key to start the app on _Android_, or press the <kbd>I</kbd> key to start the app on _iOS_.
-
-`or`
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of the project and run the following command:
+On Terminal 3 (Application/Mobile App), press the <kbd>a</kbd> key to run the app on `Android`, or press the <kbd>i</kbd> key to run the app on `iOS`.
 
 - For Android
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+    $ a
 ```
 
 - For iOS
 
 ```bash
-# using npm
-npm run ios
+    $ i
+```
 
-# OR using Yarn
-yarn ios
+### 4. (Optional) Update the Packages/Dependencies
+
+If you want to keep all packages and dependencies up-to-date, run on each terminal:
+
+```bash
+    # using npm
+    $ npm i -g npm-check-updates
+    $ ncu -u
+    $ npm install
+
+    # OR using Yarn
+    $ yarn i -g yarn-check-updates
+    $ ncu -u
+    $ yarn install
 ```
 
 If everything is set up correctly, you should see your new app running in your Android Emulator or iOS Simulator shortly provided you have set it up correctly.
