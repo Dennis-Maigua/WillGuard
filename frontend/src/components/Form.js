@@ -22,7 +22,7 @@ function Form() {
 
     const verifyToken = async () => {
         try {
-            const { data } = await axios(
+            await axios(
                 `${baseURL}/verify-token?token=${token}&id=${id}`
             );
             setBusy(false);
