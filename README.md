@@ -2,6 +2,8 @@
 
 This project is licensed under the MIT license.
 
+# Overview
+
 WillGuard is a decentralized application (DApp) leveraging blockchain technology and smart contracts to streamline the creation and execution of wills.
 By harnessing the transparency, security, and immutability of blockchain, this DApp offers users a reliable and efficient solution for managing their testamentary wishes. 
 Traditional will-making processes are often cumbersome, prone to errors, and subject to legal complexities. 
