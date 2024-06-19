@@ -11,7 +11,7 @@ exports.createUser = async (req, res) => {
     const { name, email, password } = req.body;
     const user = await User.findOne({ email });
     if (user) {
-        return sendError(res, "This email already exists!");
+        return sendError(res, "Email is already taken!");
     }
 
     const newUser = new User({
@@ -44,6 +44,56 @@ exports.createUser = async (req, res) => {
             email: newUser.email,
             id: newUser._id,
             verified: newUser.verified
+        }
+    });
+};
+
+exports.verifyEmail = async (req, res) => {
+    const { userId, otp } = req.body;
+    if (!userId || !otp.trim()) {
+        return sendError(res, 'Invalid request!');
+    }
+    if (!isValidObjectId(userId)) {
+        return sendError(res, 'Invalid user ID!');
+    }
+
+    const user = await User.findById(userId);
+    if (!user) {
+        return sendError(res, 'User not found or does not exist!');
+    }
+    if (user.verified) {
+        return sendError(res, 'This account is already verified!');
+    }
+
+    const token = await VerificationToken.findOne({ owner: user._id });
+    if (!token) {
+        return sendError(res, 'User not found or does not exist!');
+    }
+
+    const isMatched = await token.compareToken(otp);
+    if (!isMatched) {
+        return sendError(res, 'Invalid token!');
+    }
+
+    user.verified = true;
+    await VerificationToken.findByIdAndDelete(token._id);
+    await user.save();
+
+    mailTransport().sendMail({
+        from: process.env.USER_NAME,
+        to: user.email,
+        subject: 'Email Verification Success',
+        html: welcomeEmailTemplate('Welcome to WillGuard',
+            'Your email has been verified successfully!')
+    });
+
+    res.json({
+        success: true,
+        message: "Verification success! Please sign in.!",
+        user: {
+            name: user.name,
+            email: user.email,
+            id: user._id
         }
     });
 };
@@ -83,56 +133,6 @@ exports.login = async (req, res) => {
     catch (error) {
         return sendError(res, error.message, 500);
     }
-};
-
-exports.verifyEmail = async (req, res) => {
-    const { userId, otp } = req.body;
-    if (!userId || !otp.trim()) {
-        return sendError(res, 'Invalid request!');
-    }
-    if (!isValidObjectId(userId)) {
-        return sendError(res, 'Invalid user ID!');
-    }
-
-    const user = await User.findById(userId);
-    if (!user) {
-        return sendError(res, 'User not found or does not exist!');
-    }
-    if (user.verified) {
-        return sendError(res, 'This account is already verified!');
-    }
-
-    const token = await VerificationToken.findOne({ owner: user._id });
-    if (!token) {
-        return sendError(res, 'User not found or does not exist!');
-    }
-
-    const isMatched = await token.compareToken(otp);
-    if (!isMatched) {
-        return sendError(res, 'Invalid token!');
-    }
-
-    user.verified = true;
-    await VerificationToken.findByIdAndDelete(token._id);
-    await user.save();
-
-    mailTransport().sendMail({
-        from: process.env.USER_NAME,
-        to: user.email,
-        subject: 'Email Verification Successful',
-        html: welcomeEmailTemplate('Welcome to WillGuard',
-            'Your email has been verified successfully! You can now login using your new account.')
-    });
-
-    res.json({
-        success: true,
-        message: "Email Verification Successful!",
-        user: {
-            name: user.name,
-            email: user.email,
-            id: user._id
-        }
-    });
 };
 
 exports.forgotPassword = async (req, res) => {
@@ -193,8 +193,8 @@ exports.resetPassword = async (req, res) => {
         from: process.env.USER_NAME,
         to: user.email,
         subject: 'Password Reset Successful',
-        html: resetSuccessTemplate('Congratulations!',
-            'Your password has been changed successfully! You can now login with your new password.')
+        html: resetSuccessTemplate('Welcome Back!',
+            'Your password has been reset successfully!')
     });
 
     res.json({
