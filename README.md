@@ -114,4 +114,4 @@ If everything is set up correctly, you should see your new app running in your A
 This is one way to run your app — you can also run it directly from within your Smartphone/Mobile Device, or Android Studio, and Xcode respectively.
    
 # Contributing:
-We welcome contributions from developers, legal experts, and blockchain enthusiasts. Feel free to fork the repository, make improvements, and submit pull requests.
+We welcome contributions from developers, technology experts, and blockchain enthusiasts. Feel free to fork the repository, make improvements, and submit pull requests.
