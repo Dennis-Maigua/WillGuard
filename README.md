@@ -45,7 +45,7 @@ Open the project folders in 3 terminals, install their packages/dependencies, an
 
     # OR using Yarn
     $ cd Desktop/willguard/backend
-    $ yarn i
+    $ yarn add
     $ yarn start
 ```
 
@@ -59,7 +59,7 @@ Open the project folders in 3 terminals, install their packages/dependencies, an
 
     # OR using Yarn
     $ cd Desktop/willguard/frontend
-    $ yarn i
+    $ yarn add
     $ yarn start
 ```
 
@@ -73,7 +73,7 @@ Open the project folders in 3 terminals, install their packages/dependencies, an
 
     # OR using Yarn
     $ cd Desktop/willguard/application
-    $ yarn i
+    $ yarn add
     $ yarn start
 ```
 
@@ -104,9 +104,9 @@ If you want to keep all packages and dependencies up-to-date, run on each termin
     $ npm install
 
     # OR using Yarn
-    $ yarn i -g yarn-check-updates
+    $ yarn add -g yarn-check-updates
     $ ncu -u
-    $ yarn install
+    $ yarn add
 ```
 
 If everything is set up correctly, you should see your new app running in your Android Emulator or iOS Simulator shortly provided you have set it up correctly.
